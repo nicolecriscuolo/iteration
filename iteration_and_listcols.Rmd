@@ -71,7 +71,7 @@ mean_and_sd = function(x) {
   mean_x = mean(x, na.rm = TRUE)
   sd_x = sd(x, na.rm = TRUE)
   
-  c(mean_x, sd_x)
+  tibble(mean = mean_x, sd = sd_x)
   
 }
 ```
@@ -130,10 +130,10 @@ pull(listcol_df, sample)
 
 Can I apply `mean_and_sd`?
 ```{r}
-pull(listcol_df, sample)[[1]]
-pull(listcol_df, sample)[[2]]
-pull(listcol_df, sample)[[3]]
-pull(listcol_df, sample)[[4]]
+mean_and_sd(pull(listcol_df, sample)[[1]])
+mean_and_sd(pull(listcol_df, sample)[[2]])
+mean_and_sd(pull(listcol_df, sample)[[3]])
+mean_and_sd(pull(listcol_df, sample)[[4]])
 ```
 
 Iterate using `map`
