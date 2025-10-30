@@ -131,12 +131,12 @@ The inputs are
 
 Function simulates data from a normal and computes sample mean and sd.
 
-```{r}
-sim_mean_sd = function(n_subject = 30, mu = 3, sigma = 2) { ## default values not necessary, just will have to specify later
+```{r, eval = FALSE}
+sim_mean_sd = function(n_subj, mu = 3, sigma = 2) { ## default values not necessary, just will have to specify later
   
   sim_df =
     tibble(
-      x = rnorm(n = n_subject, mean = mu, sd = sigma)
+      x = rnorm(n = n_subj, mean = mu, sd = sigma)
     )
   
   sim_df |> 
@@ -148,10 +148,15 @@ sim_mean_sd = function(n_subject = 30, mu = 3, sigma = 2) { ## default values no
 }
 ```
 
+(we now are sourcing this code chunk)
+```{r}
+source("sim_mean_sd.R")
+```
+
 Let's run this function.
 
 ```{r}
-sim_mean_sd(n_subject = 3800, mu = 8) ##providing named arguments if default not specified or if it is it overrides it
+sim_mean_sd(n_subj = 3800, mu = 8) ##provide named arguments if default not specified or if it is it overrides it
 ```
 
 Import LOTR data.
